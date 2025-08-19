@@ -12,9 +12,16 @@ function App() {
     }
   })
 
+  const [theme, setTheme] = useState("light") // default theme
+
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])
+
+  // Apply theme to <body>
+  useEffect(() => {
+    document.body.className = theme + "-mode"
+  }, [theme])
 
   const remainingCount = useMemo(
     () => todos.filter((t) => !t.done).length,
@@ -53,7 +60,15 @@ function App() {
 
   return (
     <div className="app">
-      <h1 className="title">To‑Do List</h1>
+      <h1 className="title">To-Do List</h1>
+
+      {/* Theme toggle button */}
+      <button 
+        className="theme-toggle-btn"
+        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      >
+        Switch to {theme === "light" ? "Dark" : "Light"} Mode
+      </button>
 
       <form onSubmit={handleAddTodo} className="new-todo-form" aria-label="Add a new to-do">
         <input
@@ -80,7 +95,7 @@ function App() {
 
       <ul className="todo-list" role="list">
         {todos.length === 0 && (
-          <li className="empty">No to‑dos yet. Add one above!</li>
+          <li className="empty">No to-dos yet. Add one above!</li>
         )}
         {todos.map((todo) => (
           <li key={todo.id} className={`todo ${todo.done ? 'done' : ''}`}>
