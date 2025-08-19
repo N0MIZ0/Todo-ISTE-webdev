@@ -88,6 +88,7 @@
   background: #121519;
 }
 
+
 .todo.done .todo-text {
   text-decoration: line-through;
   color: #8a8a8a;
@@ -114,4 +115,31 @@
 .delete-btn:focus {
   outline: 2px solid #646cff;
   outline-offset: 2px;
+}
+/* Light mode (default) */
+body.light-mode {
+  color: #213547;
+  background-color: #ffffff;
+}
+
+body.light-mode button {
+  background-color: #f9f9f9;
+  color: #213547;
+}
+
+/* Dark mode */
+body.dark-mode {
+  color: #ffffff;
+  background-color: #121212;
+}
+
+body.dark-mode button {
+  background-color: #333333;
+  color: #ffffff;
+}
+.theme-toggle-btn {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
 }
