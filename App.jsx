@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react' /* usestate- store input/theme (todos), effect-saving to local storage and all basically side effects, memo- memory to count total todos */
 import './App.css'
 
 function App() {
@@ -12,10 +12,10 @@ function App() {
     }
   })
 
-  const [theme, setTheme] = useState("light") // default theme
+  const [theme, setTheme] = useState("light") 
 
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos))
+    localStorage.setItem('todos', JSON.stringify(todos)) /* stors in browserr*/
   }, [todos])
 
   // Apply theme to <body>
@@ -24,11 +24,11 @@ function App() {
   }, [theme])
 
   const remainingCount = useMemo(
-    () => todos.filter((t) => !t.done).length,
+    () => todos.filter((t) => !t.done).length, //coutninf the number of todos
     [todos]
   )
 
-  function handleAddTodo(event) {
+  function handleAddTodo(event) { //add
     event.preventDefault()
     const text = newTodoText.trim()
     if (!text) return
@@ -42,7 +42,7 @@ function App() {
     setNewTodoText('')
   }
 
-  function handleToggleTodo(id) {
+  function handleToggleTodo(id) { //finishing the todo
     setTodos((current) =>
       current.map((todo) =>
         todo.id === id ? { ...todo, done: !todo.done } : todo
@@ -50,7 +50,7 @@ function App() {
     )
   }
 
-  function handleDeleteTodo(id) {
+  function handleDeleteTodo(id) { //deleting the todo
     setTodos((current) => current.filter((todo) => todo.id !== id))
   }
 
@@ -62,10 +62,9 @@ function App() {
     <div className="app">
       <h1 className="title">To-Do List</h1>
 
-      {/* Theme toggle button */}
       <button 
         className="theme-toggle-btn"
-        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        onClick={() => setTheme(theme === "light" ? "dark" : "light")} //theme button
       >
         Switch to {theme === "light" ? "Dark" : "Light"} Mode
       </button>
