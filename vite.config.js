@@ -5,4 +5,4 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   plugins: [react()],
 })
-// tells vite to use js + handles react-jsx + fast refresh
+// tells vite to use js + handles react-jsx + fast auto refresh
