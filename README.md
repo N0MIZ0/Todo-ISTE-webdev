@@ -37,41 +37,6 @@ A modern, feature-rich todo list application built with React that helps you org
 - **Local Storage API** - Client-side data persistence
 - **ES6+ Features** - Modern JavaScript syntax and hooks
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (version 16 or higher)
-- npm or yarn package manager
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd todo-list
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser**
-   Navigate to `http://localhost:5173`
-
-### Build for Production
-
-```bash
-npm run build
-```
-
-The built files will be in the `dist` folder, ready for deployment.
-
 ## 📱 How to Use
 
 ### Adding Tasks
